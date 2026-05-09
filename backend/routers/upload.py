@@ -8,7 +8,13 @@ from database import (
     insert_event, get_events, check_duplicate_filenames, get_public_photos, get_public_photos_count
 )
 from cloudinary_service import upload_image
-from face_service import detect_faces_and_embeddings
+try:
+    from face_service import detect_faces_and_embeddings
+except Exception as e:
+    print("Face recognition disabled:", e)
+
+    async def detect_faces_and_embeddings(*args, **kwargs):
+        return []
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
