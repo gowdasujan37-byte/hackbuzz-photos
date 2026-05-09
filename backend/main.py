@@ -23,8 +23,10 @@ app.include_router(auth.router, prefix="/api/auth", tags=["Auth"])  # add this l
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://hackbuzz-photos.vercel.app"
-    ],  # In production: set to your frontend URL
+        "https://hackbuzz-photos.vercel.app",
+        "http://localhost:3000",
+        "http://localhost:5173"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
