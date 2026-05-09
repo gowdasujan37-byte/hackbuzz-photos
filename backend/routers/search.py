@@ -3,7 +3,16 @@ from typing import Optional
 import logging
 
 from database import get_all_embeddings
-from face_service import get_single_face_embedding, compare_embeddings
+try:
+    from face_service import get_single_face_embedding, compare_embeddings
+except Exception as e:
+    print("Face recognition disabled:", e)
+
+    async def get_single_face_embedding(*args, **kwargs):
+        return None
+
+    async def compare_embeddings(*args, **kwargs):
+        return []
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
