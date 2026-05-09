@@ -24,7 +24,7 @@ export default function HomePage() {
     setLoading(true)
     try {
       console.log(`Fetching photos with offset=${currentOffset}`)
-      const url = `${API}/public/photos?limit=30&offset=${currentOffset}`
+      const url = `${API}/_/backend/public/photos?limit=30&offset=${currentOffset}`
       console.log(`API URL: ${url}`)
       
       const res = await axios.get(url)
