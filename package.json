@@ -1,0 +1,16 @@
+{
+  "name": "facevent",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"cd backend && venv/Scripts/activate && uvicorn main:app --reload --port 8000\"",
+    "dev:mac": "concurrently \"npm run dev --prefix frontend\" \"cd backend && source venv/bin/activate && uvicorn main:app --reload --port 8000\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "version": "1.0.0",
+  "description": "> Upload event photos → AI indexes all faces → Students find their photos with a selfie.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
